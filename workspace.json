@@ -161,6 +161,88 @@
                     }
                 }
             }
+        },
+        "pokemon-csr": {
+            "root": "apps/pokemon-csr",
+            "sourceRoot": "apps/pokemon-csr",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/next:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "root": "apps/pokemon-csr",
+                        "outputPath": "dist/apps/pokemon-csr"
+                    },
+                    "configurations": {
+                        "production": {}
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/next:server",
+                    "options": {
+                        "buildTarget": "pokemon-csr:build",
+                        "dev": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "buildTarget": "pokemon-csr:build:production",
+                            "dev": false
+                        }
+                    }
+                },
+                "export": {
+                    "executor": "@nrwl/next:export",
+                    "options": {
+                        "buildTarget": "pokemon-csr:build:production"
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/pokemon-csr"],
+                    "options": {
+                        "jestConfig": "apps/pokemon-csr/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/pokemon-csr/**/*.{ts,tsx,js,jsx}"
+                        ]
+                    }
+                }
+            }
+        },
+        "pokemon-csr-e2e": {
+            "root": "apps/pokemon-csr-e2e",
+            "sourceRoot": "apps/pokemon-csr-e2e/src",
+            "projectType": "application",
+            "targets": {
+                "e2e": {
+                    "executor": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/pokemon-csr-e2e/cypress.json",
+                        "devServerTarget": "pokemon-csr:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "pokemon-csr:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/pokemon-csr-e2e/**/*.{js,ts}"
+                        ]
+                    }
+                }
+            }
         }
     },
     "cli": {
@@ -178,6 +260,12 @@
             },
             "library": {
                 "style": "scss",
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/next": {
+            "application": {
+                "style": "css",
                 "linter": "eslint"
             }
         }

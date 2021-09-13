@@ -42,6 +42,13 @@
         },
         "mycomps": {
             "tags": []
+        },
+        "pokemon-csr": {
+            "tags": []
+        },
+        "pokemon-csr-e2e": {
+            "tags": [],
+            "implicitDependencies": ["pokemon-csr"]
         }
     }
 }
