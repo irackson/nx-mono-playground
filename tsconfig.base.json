@@ -15,7 +15,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@nx-mono/mycomps": ["libs/mycomps/src/index.ts"]
+            "@nx-mono/mycomps": ["libs/mycomps/src/index.ts"],
+            "@nx-mono/shared-types": ["libs/shared-types/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
