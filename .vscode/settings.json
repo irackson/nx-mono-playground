@@ -22,5 +22,6 @@
         "terminalCursor.background": "#a7a7a7",
         "terminalCursor.foreground": "#dddd0fb6",
         "tab.activeBorder": "#0005BC"
-    }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

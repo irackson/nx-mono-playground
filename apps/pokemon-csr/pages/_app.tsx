@@ -6,17 +6,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
-                <title>Welcome to pokemon-csr!</title>
+                <title>Pokemon-CSR!</title>
+                {/* <link rel="icon" href="/favicon.ico" /> */}
             </Head>
             <div className="app">
                 <header className="flex">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src="/nx-logo-white.svg"
-                        alt="Nx logo"
-                        width="75"
-                        height="50"
-                    />
                     <h1>Welcome to pokemon-csr!</h1>
                 </header>
                 <main>
