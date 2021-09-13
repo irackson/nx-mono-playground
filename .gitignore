@@ -37,4 +37,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-apps/pokemon-csr
+apps/pokemon-csr/public/pokemon
