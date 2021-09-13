@@ -1,10 +1,14 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 function CustomApp({ Component, pageProps }: AppProps) {
     return (
-        <>
+        <QueryClientProvider client={queryClient}>
             <Head>
                 <title>Pokemon-CSR!</title>
                 {/* <link rel="icon" href="/favicon.ico" /> */}
@@ -17,7 +21,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
                     <Component {...pageProps} />
                 </main>
             </div>
-        </>
+        </QueryClientProvider>
     );
 }
 
