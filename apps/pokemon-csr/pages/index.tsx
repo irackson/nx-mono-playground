@@ -19,7 +19,6 @@ const getPokemon: QueryFunction = async ({
 
 export function Index() {
     const [query, setQuery] = useState('');
-
     const data = useQuery(['q', query], getPokemon).data as Pokemon[];
     const pokemon = data?.map((poke) => ({
         ...poke,
