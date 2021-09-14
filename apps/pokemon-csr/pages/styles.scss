@@ -1,9 +1,17 @@
 // @import 'bootstrap';
 
+.card {
+    cursor: pointer;
+}
+
+//!  __   ___  ___                ___  __
+//! |  \ |__  |__   /\  |  | |     |  /__`
+//! |__/ |___ |    /~~\ \__/ |___  |  .__/
+
 .app {
     font-family: sans-serif;
     min-width: 300px;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 50px auto;
 }
 
