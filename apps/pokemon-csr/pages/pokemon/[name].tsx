@@ -1,14 +1,13 @@
+import type { Pokemon } from '@nx-mono/shared-types';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { Col, Container, Row } from 'react-bootstrap';
+import { useQuery } from 'react-query';
 import {
     getPokemonByName,
     getPokemonImageSrc,
 } from '../../utils/fetch-pokemon';
-import { useQuery } from 'react-query';
-import type { Pokemon } from '@nx-mono/shared-types';
-import { Card, Col, Container, FormControl, Row } from 'react-bootstrap';
-
-import { useRouter } from 'next/router';
 import './[name].module.scss';
-import Head from 'next/head';
 
 /* eslint-disable-next-line */
 export interface NameProps {}

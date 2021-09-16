@@ -15,7 +15,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
             </Head>
             <div className="app">
                 <header className="flex">
-                    <h1>Welcome to pokemon-csr!</h1>
+                    <h1 style={{ color: 'red' }}>Welcome to pokemon-csr!</h1>
                 </header>
                 <main>
                     <Component {...pageProps} />

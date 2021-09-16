@@ -26,6 +26,16 @@ export const getPokemonByName: QueryFunction = async ({
     return data;
 };
 
+export const getServerSidePokemonByName = async (key: string, name: string) => {
+    const { data } = await axios.get(
+        `http://localhost:${
+            process.env.PORT || 4200
+        }/api/pokemon?${key}=${encodeURIComponent(name)}`
+    );
+
+    return data;
+};
+
 export const getPokemonImageSrc = (name: string) => {
     return `/pokemon/${name.toLowerCase().replace(' ', '-')}.jpg`;
 };

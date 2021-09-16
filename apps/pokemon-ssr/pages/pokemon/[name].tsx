@@ -1,24 +1,32 @@
-import {
-    getPokemonByName,
-    getPokemonImageSrc,
-} from '../../utils/fetch-pokemon';
-import { useQuery } from 'react-query';
 import type { Pokemon } from '@nx-mono/shared-types';
-import { Card, Col, Container, FormControl, Row } from 'react-bootstrap';
-
-import { useRouter } from 'next/router';
-import './[name].module.scss';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import { Col, Container, Row } from 'react-bootstrap';
+import {
+    getPokemonImageSrc,
+    getServerSidePokemonByName,
+} from '../../utils/fetch-pokemon';
+import './[name].module.scss';
 
 /* eslint-disable-next-line */
-export interface NameProps {}
+export interface NameProps {
+    data: Pokemon;
+}
 
-export function Name(props: NameProps) {
-    const router = useRouter();
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const data = (await getServerSidePokemonByName(
+        'name',
+        context.params.name.toString()
+    )) as Pokemon;
 
-    const data = useQuery(['name', router.query.name], getPokemonByName)
-        .data as Pokemon;
+    return {
+        props: {
+            data,
+        },
+    };
+};
 
+export function Name({ data }: NameProps) {
     return (
         <div>
             <Head>
