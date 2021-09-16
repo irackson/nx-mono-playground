@@ -1,27 +1,35 @@
 import type { Pokemon } from '@nx-mono/shared-types';
-import { GetServerSideProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Col, Container, Row } from 'react-bootstrap';
-import {
-    getPokemonImageSrc,
-    getServerSidePokemonByName,
-} from '../../utils/fetch-pokemon';
+import { getPokemonImageSrc } from '../../utils/fetch-pokemon';
 import './[name].module.scss';
+import pokemon from '../../pokemon.json';
 
 /* eslint-disable-next-line */
 export interface NameProps {
     data: Pokemon;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const data = (await getServerSidePokemonByName(
-        'name',
-        context.params.name.toString()
-    )) as Pokemon;
+export const getStaticPaths: GetStaticPaths = async () => {
+    return {
+        paths: pokemon.map(({ name: { english } }) => ({
+            params: {
+                name: english,
+            },
+        })),
+        fallback: false,
+    };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const pokemonToFind = context.params.name.toString();
 
     return {
         props: {
-            data,
+            data: pokemon.find(
+                ({ name: { english } }) => english === pokemonToFind
+            ),
         },
     };
 };
