@@ -244,6 +244,88 @@
                 }
             }
         },
+        "pokemon-ssr": {
+            "root": "apps/pokemon-ssr",
+            "sourceRoot": "apps/pokemon-ssr",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/next:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "root": "apps/pokemon-ssr",
+                        "outputPath": "dist/apps/pokemon-ssr"
+                    },
+                    "configurations": {
+                        "production": {}
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/next:server",
+                    "options": {
+                        "buildTarget": "pokemon-ssr:build",
+                        "dev": true
+                    },
+                    "configurations": {
+                        "production": {
+                            "buildTarget": "pokemon-ssr:build:production",
+                            "dev": false
+                        }
+                    }
+                },
+                "export": {
+                    "executor": "@nrwl/next:export",
+                    "options": {
+                        "buildTarget": "pokemon-ssr:build:production"
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/pokemon-ssr"],
+                    "options": {
+                        "jestConfig": "apps/pokemon-ssr/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/pokemon-ssr/**/*.{ts,tsx,js,jsx}"
+                        ]
+                    }
+                }
+            }
+        },
+        "pokemon-ssr-e2e": {
+            "root": "apps/pokemon-ssr-e2e",
+            "sourceRoot": "apps/pokemon-ssr-e2e/src",
+            "projectType": "application",
+            "targets": {
+                "e2e": {
+                    "executor": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/pokemon-ssr-e2e/cypress.json",
+                        "devServerTarget": "pokemon-ssr:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "pokemon-ssr:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/pokemon-ssr-e2e/**/*.{js,ts}"
+                        ]
+                    }
+                }
+            }
+        },
         "shared-types": {
             "root": "libs/shared-types",
             "sourceRoot": "libs/shared-types/src",

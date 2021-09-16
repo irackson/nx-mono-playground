@@ -50,6 +50,13 @@
             "tags": [],
             "implicitDependencies": ["pokemon-csr"]
         },
+        "pokemon-ssr": {
+            "tags": []
+        },
+        "pokemon-ssr-e2e": {
+            "tags": [],
+            "implicitDependencies": ["pokemon-ssr"]
+        },
         "shared-types": {
             "tags": []
         }

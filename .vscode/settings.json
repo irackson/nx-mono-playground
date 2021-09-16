@@ -21,7 +21,17 @@
         "terminal.foreground": "#A7A7A7",
         "terminalCursor.background": "#a7a7a7",
         "terminalCursor.foreground": "#dddd0fb6",
+        "statusBar.background": "#561eb5",
+        "statusBar.border": "#561eb5",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#6c2adc",
+        "titleBar.activeBackground": "#0005BC",
+        "titleBar.activeForeground": "#ffffff",
+        "titleBar.border": "#561eb5",
+        "titleBar.inactiveBackground": "#561eb599",
+        "titleBar.inactiveForeground": "#e7e7e799",
         "tab.activeBorder": "#0005BC"
     },
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "peacock.color": "#561eb5"
 }
